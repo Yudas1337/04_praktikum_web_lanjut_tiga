@@ -12,23 +12,10 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 product_detail_side">
                 <div class="abotext_box">
                     <div class="product-heading">
-                        <h2>{{ $title }}</h2>
-                    </div>
-                    <div class="product-detail-side">
-                        <span><del>$679.89</del></span><span class="new-price">$547.60</span>
-                        <span class="rating">
-         <i class="fa fa-star" aria-hidden="true"></i>
-         <i class="fa fa-star" aria-hidden="true"></i>
-         <i class="fa fa-star" aria-hidden="true"></i>
-         <i class="fa fa-star" aria-hidden="true"></i>
-         <i class="fa fa-star-o" aria-hidden="true"></i>
-         </span>
-                        <span class="review">(5 customer review)</span>
+                        <h2>{{ $data->name }}</h2>
                     </div>
                     <div class="detail-contant">
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-                            <br><span class="stock">2 in stock</span>
-                        </p>
+                        <p>{{ $data->content }}</p>
                         <form class="cart" method="post" action="shop-cart.html">
                             <div class="quantity">
                                 <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
@@ -51,9 +38,7 @@
                         <div class="tab-content">
                             <div id="description" class="tab-pane active">
                                 <div class="product_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac elementum elit. Morbi eu arcu ipsum. Aliquam lobortis accumsan quam ac convallis. Fusce elit mauris, aliquet at odio vel, convallis vehicula nisi. Morbi vitae porttitor dolor. Integer eget metus sem. Nam venenatis mauris vel leo pulvinar, id rutrum dui varius. Nunc ac varius quam, non convallis magna. Donec suscipit commodo dapibus.
-                                        <br>
-                                        <br>Vestibulum et ullamcorper ligula. Morbi bibendum tempor rutrum. Pelle tesque auctor purus id molestie ornare.Donec eu lobortis risus. Pellentesque sed aliquam lorem. Praesent pulvinar lorem vel mauris ultrices posuere. Phasellus elit ex, gravida a semper ut, venenatis vitae diam. Nullam eget leo massa. Aenean eu consequat arcu, vitae scelerisque quam. Suspendisse risus turpis, pharetra a finibus vitae, lobortis et mi.</p>
+                                    <p>{{ $data->content }}</p>
                                 </div>
                             </div>
                             <div id="reviews" class="tab-pane fade">

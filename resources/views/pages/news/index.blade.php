@@ -16,26 +16,18 @@
  <div class="blog">
    <div class="container">
      <div class="row">
+        @foreach($data as $list)
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                <a href="{{ url('news/ini-berita-1') }}">
+                <a href="{{ route('news', $list->slug) }}">
                      <div class="news-box">
-                         <figure><img src="{{ asset('assets/images/blol.jpg') }}" alt="img" /></figure>
-                         <h3>Ini Berita 1</h3>
-                         <span> March 20</span><span>Comment</span>
-                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
+                         <figure><img src="{{ $list->image }}" alt="img" /></figure>
+                         <h3>{{ $list->name }}</h3>
+                         <p>{{ $list->content }}</p>
                      </div>
                     </a>
                  </div>
-                <a href="{{ url('news/ini-berita-2') }}">
-                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                     <div class="news-box">
-                         <figure><img src="{{ asset('assets/images/blog.jpg') }}" alt="img" /></figure>
-                         <h3>Ini Berita 2</h3>
-                         <span> March 20</span><span>Comment</span>
-                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                     </div>
-                    </a>
-                 </div>
+         @endforeach
+                
      </div>
    </div>
  </div>

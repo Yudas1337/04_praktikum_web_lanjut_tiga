@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\News;
 
 class NewsController extends Controller
 {
-    public function show($slug = "")
+
+    public function index()
+    {
+        $data = News::getAll();
+        return view('pages.news.index', compact('data'));
+    }
+
+    public function show(string $slug = "")
     {
         if ($slug) {
-            $title = str_replace("-", " ", $slug);
-            return view('pages.news.', compact('title'));
+            $data = News::getBySlug($slug);
+            return view('pages.news.show', compact('data'));
         }
-        return view('pages.news.index');
+        return $this->index();
     }
 }
