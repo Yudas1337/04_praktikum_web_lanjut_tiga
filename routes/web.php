@@ -36,7 +36,7 @@ Route::get('news/{slug?}', [NewsController::class, 'show'])->name('news');
 
 Route::prefix('program')->group(function () {
     Route::get('/', [ProgramController::class, 'index'])->name('program');
-    Route::get('{slug}', [ProductController::class, 'show'])->name('programs.show');
+    Route::get('{slug}', [ProgramController::class, 'show'])->name('programs.show');
 });
 
 Route::get('about-us', [AboutController::class, 'about'])->name('about-us');

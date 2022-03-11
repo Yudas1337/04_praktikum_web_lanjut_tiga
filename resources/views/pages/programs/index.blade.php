@@ -17,49 +17,20 @@
    <div class="container">
       <div class="row product_style_3" ">
        <!-- product -->
+       @foreach($data as $list)
        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
          <div class="full product">
            <div class="product_img">
-             <div class="center"> <img src="{{ asset('assets/icon/p1.png') }}" alt="#"/>
-               <div class="overlay_hover"> <a class="add-bt" href="{{ route('karir') }}">detail</a> </div>
+             <div class="center"> <img src="{{ $list->image }}" alt="#"/>
+               <div class="overlay_hover"> <a class="add-bt" href="{{ route('programs.show', $list->slug) }}">detail</a> </div>
              </div>
            </div>
            <div class="product_detail text_align_center">
-             <p class="product_price">$679.89 <span class="old_price">$679.89</span></p>
-             <p class="product_descr">Karir</p>
+             <p class="product_descr">{{ $list->name }}</p>
            </div>
          </div>
        </div>
-       <!-- end product -->
-       <!-- product -->
-       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-         <div class="full product">
-           <div class="product_img">
-             <div class="center"> <img src="{{ asset('assets/icon/p2.png') }}" alt="#"/>
-               <div class="overlay_hover"> <a class="add-bt" href="{{ route('magang') }}">detail</a> </div>
-             </div>
-           </div>
-           <div class="product_detail text_align_center">
-             <p class="product_price">$679.89 <span class="old_price">$679.89</span></p>
-             <p class="product_descr">Magang</p>
-           </div>
-         </div>
-       </div>
-       <!-- end product -->
-       <!-- product -->
-       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-         <div class="full product">
-           <div class="product_img">
-             <div class="center"> <img src="{{ asset('assets/icon/p3.png') }}" alt="#"/>
-               <div class="overlay_hover"> <a class="add-bt" href="{{ route('kunjungan') }}">detail</a> </div>
-             </div>
-           </div>
-           <div class="product_detail text_align_center">
-             <p class="product_price">$679.89 <span class="old_price">$679.89</span></p>
-             <p class="product_descr">Kunjungan Industri</p>
-           </div>
-         </div>
-       </div>
+       @endforeach
        <!-- end product -->
      </div>
    </div>

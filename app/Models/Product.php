@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Queries;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, Queries;
     protected $table = 'products';
     protected $primaryKey = 'id';
     public $incrementing = true;
@@ -39,32 +40,5 @@ class Product extends Model
             ->inRandomOrder()
             ->take(3)
             ->get();
-    }
-
-    /**
-     * Get products with pagination
-     *
-     * @return object
-     */
-
-    public static function getAll(): object
-    {
-        return self::select('name', 'image', 'price', 'slug')
-            ->latest()
-            ->paginate(6);
-    }
-
-    /**
-     * Get specified products by slug
-     * 
-     * @param string $slug
-     * @return object
-     * 
-     */
-
-    public static function getBySlug(string $slug): object
-    {
-        return self::where(['slug' => $slug,])
-            ->firstOrFail();
     }
 }
