@@ -18,14 +18,13 @@
      <div class="row">
        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
          <div class="aboutimg">
-         <h3>About us</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
-         <a href="#">Read More</a>
+         <h3>{{ $data->title }}</h3>
+         <p>{{ $data->description }}</p>
          </div>
        </div>
        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
          <div class="aboutimg">
-         <figure><img src="{{ asset('assets/images/Avangarda_klu.jpg') }}"/></figure>
+         <figure><img src="{{ $data->image }}"/></figure>
          </div>
        </div>
      </div>

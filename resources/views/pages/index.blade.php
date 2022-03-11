@@ -174,16 +174,16 @@
                     @csrf
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input class="form-control" placeholder="Name" type="text" name="Name">
+                            <input class="form-control" autocomplete="off" placeholder="Name" type="text" name="name">
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input class="form-control" placeholder="Email" type="text" name="Email">
+                            <input class="form-control" autocomplete="off" placeholder="Email" type="text" name="email">
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input class="form-control" placeholder="Phone" type="text" name="Phone">
+                            <input class="form-control" autocomplete="off" placeholder="Phone" type="text" name="phone">
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
+                            <textarea class="textarea" autocomplete="off" placeholder="Message" type="text" name="message"></textarea>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <button class="send">Send</button>

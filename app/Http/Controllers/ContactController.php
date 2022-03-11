@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -11,8 +12,9 @@ class ContactController extends Controller
         return view('pages.contact');
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        return "Halaman Post Kontak ke backend";
+        Contact::create($request->validated());
+        return redirect()->back();
     }
 }

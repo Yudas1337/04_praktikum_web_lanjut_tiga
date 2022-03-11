@@ -10,8 +10,8 @@ class NewsController extends Controller
     {
         if ($slug) {
             $title = str_replace("-", " ", $slug);
-            return view('pages.detail', compact('title'));
+            return view('pages.news.', compact('title'));
         }
-        return view('pages.news.news');
+        return view('pages.news.index');
     }
 }
