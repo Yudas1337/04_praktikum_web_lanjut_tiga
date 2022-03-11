@@ -24,7 +24,7 @@ class ProductFactory extends Factory
         $name = $this->faker->sentence;
         return [
             'name'      => $name,
-            'image'     => $this->faker->imageUrl(640, 480, null, true),
+            'image'     => $this->faker->imageUrl(640, 480, "nature", true),
             'content'   => $this->faker->realText(),
             'price'     => $this->faker->randomNumber(5),
             'slug'      => str_slug($name),

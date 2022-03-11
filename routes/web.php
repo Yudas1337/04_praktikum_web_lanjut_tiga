@@ -29,10 +29,7 @@ Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('category')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('category');
-    Route::get('marbel-edu-games', [ProductController::class, 'eduGames'])->name('eduGames');
-    Route::get('marbel-and-friends-kids-games', [ProductController::class, 'kidsGames'])->name('kidsGames');
-    Route::get('riri-story-books', [ProductController::class, 'storyBooks'])->name('storyBooks');
-    Route::get('kolak-kids-songs', [ProductController::class, 'kidsSongs'])->name('kidsSongs');
+    Route::get('{slug}', [ProductController::class, 'show'])->name('categories.show');
 });
 
 Route::get('news/{slug?}', [NewsController::class, 'show'])->name('news');

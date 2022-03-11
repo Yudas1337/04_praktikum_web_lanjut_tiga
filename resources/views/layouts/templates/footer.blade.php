@@ -40,16 +40,10 @@
                 </form>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="newtt">
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point
-                    <br> of using Lorem I</p>
-            </div>
-        </div>
     </div>
 
 </div>
 
 <div class="copyright">
-    <p>Copyright 2019 All Right Reserved By <a href="https://html.design/">Free html Templates</a></p>
+    <p>Copyright {{ date('Y') }} All Right Reserved By <a href="https://yudas1337.github.io">Yudas Malabi</a></p>
 </div>

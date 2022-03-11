@@ -9,7 +9,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mapimg">
                     <div class="text-bg">
                         <h1>The latest <br> <strong class="black_bold">furniture Design</strong><br></h1>
-                        <a href="#">Shop Now <i class='fa fa-angle-right'></i></a>
+                        <a href="{{ route('category') }}">Shop Now <i class='fa fa-angle-right'></i></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -98,33 +98,22 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="title">
-                    <h2>Trending <strong class="black">Categories</strong></h2>
+                    <h2>Featured <strong class="black">Products</strong></h2>
 
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margitop">
+            @foreach($featured as $list)
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 {{ ($loop->iteration % 2 == 1 ? 'margitop' : '') }}">
+                <a href="{{ route('categories.show' , $list->slug) }}">
                 <div class="trending-box">
-                    <figure><img src="{{ asset('assets/images/1.jpg') }}" /></figure>
-                    <h3>Outdoor</h3>
-
+                    <figure><img src="{{ $list->image }}" /></figure>
+                    <h3>{{ substr($list->name,0, 10) }}</h3>
                 </div>
+            </a>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="trending-box">
-                    <figure><img src="{{ asset('assets/images/2.jpg') }}" /></figure>
-                    <h3>Living Room</h3>
-
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margitop">
-                <div class="trending-box">
-                    <figure><img src="{{ asset('assets/images/3.jpg') }}" /></figure>
-                    <h3>Bedroom Lighting</h3>
-
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>
@@ -137,7 +126,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="title">
-                    <h2>Featured <strong class="black">Brands</strong></h2>
+                    <h2>Latest <strong class="black">Products</strong></h2>
 
                 </div>
             </div>
@@ -147,34 +136,17 @@
 <div class="container-fluid">
     <div class="brand-bg">
         <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                <div class="brand-box">
-                    <i><img src="{{ asset('assets/icon/p1.png') }}"/></i>
-                    <h3>Jane Lauren Design Chair</h3>
-                    <span>$80.00</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                <div class="brand-box">
-                    <i><img src="{{ asset('assets/icon/p2.png') }}"/></i>
-                    <h3>Jane Lauren Design Chair</h3>
-                    <span>$80.00</span>
-                </div>
-            </div>
+            @foreach($latest as $list)
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                <a href="{{ route('categories.show' , $list->slug) }}">
                 <div class="brand-box">
-                    <i><img src="{{ asset('assets/icon/p3.png') }}"/></i>
-                    <h3>Jane Lauren Design Chair</h3>
-                    <span>$80.00</span>
+                    <i><img src="{{ $list->image }}"/></i>
+                    <h3>{{ substr($list->name,0, 10) }}</h3>
+                    <span>{{ "Rp " . number_format($list->price,2,',','.') }}</span>
                 </div>
+            </a>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="brand-box">
-                    <i><img src="{{ asset('assets/icon/p4.png') }}"/></i>
-                    <h3>Jane Lauren Design Chair</h3>
-                    <span>$80.00</span>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -198,7 +170,8 @@
        </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 padddd">
-                <form class="main_form">
+                <form class="main_form" method="POST" action="{{ url('contact-us') }}">
+                    @csrf
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <input class="form-control" placeholder="Name" type="text" name="Name">
